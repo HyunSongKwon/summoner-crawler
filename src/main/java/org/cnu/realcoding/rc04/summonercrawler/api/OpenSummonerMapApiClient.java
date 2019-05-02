@@ -17,7 +17,8 @@ public class OpenSummonerMapApiClient {
     private String requestPositionUrl = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{encryptid}?api_key={API_KEY}";
 
     public SummonerDTO getSummoner(String summonorid) {
-        return restTemplate.exchange(requestSummonerUrl, HttpMethod.GET, null, SummonerDTO.class, summonorid, " lkPo2KiKiFDrZ2ztXajf_1-wP74HFnZx9tRB_HyEFsU7Kw").getBody();
+        return restTemplate.exchange(requestSummonerUrl, HttpMethod.GET, null, SummonerDTO.class, summonorid, "RGAPI-e836634b-0e1a-4b1b-b44c-e4495f8cb191").getBody();
     }
-    
+
+
 }
