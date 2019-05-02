@@ -20,5 +20,8 @@ public class OpenSummonerMapApiClient {
         return restTemplate.exchange(requestSummonerUrl, HttpMethod.GET, null, SummonerDTO.class, summonorid, "RGAPI-e836634b-0e1a-4b1b-b44c-e4495f8cb191").getBody();
     }
 
+    public LeaguePositionDTO getLeaguePosition(String encryptid) {
+        return restTemplate.exchange(requestPositionUrl, HttpMethod.GET, null, LeaguePositionDTO.class, encryptid, "RGAPI-e836634b-0e1a-4b1b-b44c-e4495f8cb191").getBody();
+    }
 
 }
