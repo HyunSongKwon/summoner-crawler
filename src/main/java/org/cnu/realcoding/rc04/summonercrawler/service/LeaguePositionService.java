@@ -1,10 +1,19 @@
 package org.cnu.realcoding.rc04.summonercrawler.service;
 
+import org.cnu.realcoding.rc04.summonercrawler.api.OpenSummonerMapApiClient;
 import org.cnu.realcoding.rc04.summonercrawler.domain.LeaguePositionDTO;
+import org.cnu.realcoding.rc04.summonercrawler.repository.SummonerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LeaguePositionService {
+    @Autowired
+    private OpenSummonerMapApiClient openSummonerMapApiClient;
+    @Autowired
+    private SummonerRepository summonerRepository;
+    @Autowired
+    private LeaguePositionService leaguePositionService;
 
     public LeaguePositionDTO getLeaguePositionByID(String summonerId) {
         // 어차피 SummonerDTO중, id값만 사용하는데 굳이 필요한가?
