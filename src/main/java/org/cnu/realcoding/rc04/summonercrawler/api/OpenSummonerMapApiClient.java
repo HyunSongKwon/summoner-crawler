@@ -15,13 +15,13 @@ public class OpenSummonerMapApiClient {
     private RestTemplate restTemplate;
     private String requestSummonerUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonorid}?api_key={API_KEY}";
     private String requestPositionUrl = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/{encryptid}?api_key={API_KEY}";
-
+    private String apiKey = "RGAPI-ea2523fe-d8ce-4f98-b0ba-bf17da33f07d";
     public SummonerDTO getSummoner(String summonorid) {
-        return restTemplate.exchange(requestSummonerUrl, HttpMethod.GET, null, SummonerDTO.class, summonorid, "RGAPI-e836634b-0e1a-4b1b-b44c-e4495f8cb191").getBody();
+        return restTemplate.exchange(requestSummonerUrl, HttpMethod.GET, null, SummonerDTO.class, summonorid, apiKey).getBody();
     }
 
     public LeaguePositionDTO getLeaguePosition(String encryptid) {
-        return restTemplate.exchange(requestPositionUrl, HttpMethod.GET, null, LeaguePositionDTO.class, encryptid, "RGAPI-e836634b-0e1a-4b1b-b44c-e4495f8cb191").getBody();
+        return restTemplate.exchange(requestPositionUrl, HttpMethod.GET, null, LeaguePositionDTO.class, encryptid, apiKey).getBody();
     }
 
 }
