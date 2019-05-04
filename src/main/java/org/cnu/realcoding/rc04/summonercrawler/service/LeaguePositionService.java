@@ -30,14 +30,14 @@ public class LeaguePositionService {
         // 없으면 db에 새로 삽입
         // 있으면 업데이트
 
-        getCurrentLeaguePositionPeriodically();
+        getCurrentLeaguePositionPeriodically(summonerId);
 
         return leaguePositionDTO;
     }
 
     //@Scheduled(initialDelay = 5000L, fixedDelay = 2000L)
-    public void getCurrentLeaguePositionPeriodically(){
-        SummonerDTO summonerDTO = openSummonerMapApiClient.getSummoner("hide on bush");
+    public void getCurrentLeaguePositionPeriodically(String summonerId){
+        SummonerDTO summonerDTO = openSummonerMapApiClient.getSummoner(summonerId);
         LeaguePositionDTO leaguePositionDTO = openSummonerMapApiClient.getLeaguePosition(summonerDTO.getId());
         leaguePositionRepository.insertLeaguePosition(leaguePositionDTO);
     }
