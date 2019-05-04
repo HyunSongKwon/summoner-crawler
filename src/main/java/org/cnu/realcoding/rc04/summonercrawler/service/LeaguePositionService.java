@@ -19,7 +19,6 @@ public class LeaguePositionService {
 
     public LeaguePositionDTO getLeaguePositionByID(String summonerId) {
         // 어차피 SummonerDTO중, id값만 사용하는데 굳이 필요한가?
-        // SummonerDTO 삭제할수도 있음
 
         SummonerDTO summonerDTO = openSummonerMapApiClient.getSummoner(summonerId);
 
