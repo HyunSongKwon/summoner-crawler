@@ -29,7 +29,9 @@ public class LeaguePositionService {
         // if(db에 이미 소환사 정보 있는지 검사)
         // 없으면 db에 새로 삽입
         // 있으면 업데이트
+
         getCurrentLeaguePositionPeriodically();
+
         return leaguePositionDTO;
     }
 
