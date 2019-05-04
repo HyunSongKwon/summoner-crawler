@@ -6,6 +6,8 @@ import org.cnu.realcoding.rc04.summonercrawler.domain.SummonerDTO;
 import org.cnu.realcoding.rc04.summonercrawler.repository.LeaguePositionRepository;
 import org.cnu.realcoding.rc04.summonercrawler.repository.SummonerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.aggregation.AccumulatorOperators;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,8 +30,15 @@ public class LeaguePositionService {
         // 없으면 db에 새로 삽입
         // 있으면 업데이트
 
-        leaguePositionRepository.insertLeaguePosition(leaguePositionDTO);
+        getCurrentLeaguePositionPeriodically();
 
         return leaguePositionDTO;
+    }
+
+    //@Scheduled(initialDelay = 5000L, fixedDelay = 2000L)
+    public void getCurrentLeaguePositionPeriodically(){
+        SummonerDTO summonerDTO = openSummonerMapApiClient.getSummoner("hide on bush");
+        LeaguePositionDTO leaguePositionDTO = openSummonerMapApiClient.getLeaguePosition(summonerDTO.getId());
+        leaguePositionRepository.insertLeaguePosition(leaguePositionDTO);
     }
 }
