@@ -29,6 +29,8 @@ public class LeaguePositionService {
         // 없으면 db에 새로 삽입
         // 있으면 업데이트
 
+        leaguePositionRepository.insertLeaguePosition(leaguePositionDTO);
+
         return leaguePositionDTO;
     }
 }
