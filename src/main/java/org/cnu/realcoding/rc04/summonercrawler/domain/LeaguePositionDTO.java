@@ -9,7 +9,7 @@ public class LeaguePositionDTO {
     boolean hotStreak;
     int wins;
     boolean veteran;
-    int looses;
+    int losses;
     String rank;
     String leagueId;
     boolean inactive;
